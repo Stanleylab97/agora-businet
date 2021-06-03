@@ -117,7 +117,7 @@ func main() {
 	// Handling routes
 	// RTC token from RTC num uid
 	http.HandleFunc("/fetch_rtc_token", rtcTokenHandler)
-	fmt.Printf("Starting server at port $PORT\n")
+	fmt.Printf("Starting server at port $PORT \n")
 
 	if err := http.ListenAndServe(": $PORT", nil); err != nil {
 		log.Fatal(err)
