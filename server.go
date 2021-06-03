@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
 
@@ -119,10 +120,10 @@ func main() {
 	http.HandleFunc("/fetch_rtc_token", rtcTokenHandler)
 	
 
-	fmt.Printf("Starting server at port 8082 \n")
+	fmt.Printf("Starting server at port "+os.Getenv("PORT")+" \n")
 
-	if err := http.ListenAndServe(":8082", nil); err != nil {
+	if err := http.ListenAndServe(":"+os.Getenv("PORT"), nil); err != nil {
 		log.Fatal(err)
-		fmt.Printf("Le port 8085 ne répond pas. \n")
+		fmt.Printf("Le port "+os.Getenv("PORT")+" ne répond pas. \n")
 	}
 }
